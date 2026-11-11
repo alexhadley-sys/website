@@ -1,0 +1,6 @@
+---
+title: Archive
+permalink: /archive/
+---
+<section class="page-intro"><p class="eyebrow">THE COLLECTION</p><h1>All the little things.</h1><p>Every entry, gathered in one place.</p></section>
+{% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}{% for year in years %}<section class="archive-group"><h2>{{ year.name }}</h2>{% for post in year.items %}<a class="archive-row" href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time><span>{{ post.title | escape }}</span><span aria-hidden="true">↗</span></a>{% endfor %}</section>{% else %}<p class="empty">The first entry is on its way.</p>{% endfor %}

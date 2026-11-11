@@ -1,0 +1,8 @@
+---
+layout: default
+---
+<section class="intro"><p class="eyebrow"><span class="green-dot"></span> A PERSONAL JOURNAL</p><h1>A place to<br>put my thoughts.</h1><p>Notes, reflections, and things worth remembering.<br>A few words at a time.</p><span class="handwritten">— Alex</span></section>
+<section aria-labelledby="entries-heading"><div class="section-heading"><h2 id="entries-heading">Latest entries</h2><span>{{ site.posts | size }} {% if site.posts.size == 1 %}entry{% else %}entries{% endif %}</span></div>
+{% for post in site.posts limit:8 %}<article class="entry"><div class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}<span>{{ post.date | date: "%Y" }}</span></time></div><div><p class="eyebrow category">{{ post.category | default: "Journal" | escape }}</p><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 30 }}</p><a class="read" href="{{ post.url | relative_url }}">Read entry <span aria-hidden="true">↗</span><span class="sr-only">: {{ post.title | escape }}</span></a></div></article>{% else %}<div class="empty"><h3>A fresh page.</h3><p>The first entry is on its way. Check back soon.</p></div>{% endfor %}
+{% if site.posts.size > 8 %}<a class="all" href="{{ '/archive/' | relative_url }}">View all entries →</a>{% endif %}
+</section>

@@ -1,0 +1,20 @@
+title: "Alex’s Journal"
+description: "Notes, thoughts, and things worth remembering."
+url: "https://alexhadley-sys.github.io"
+baseurl: "/website"
+timezone: America/New_York
+markdown: kramdown
+permalink: /entries/:title/
+plugins:
+  - jekyll-feed
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude: [README.md, Gemfile, Gemfile.lock, vendor]
